@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1054817460">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - restaurantmenu.db" uuid="0aca5147-6b72-478a-bb1e-c4f9ec5ccb5d">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/restaurantmenu.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Sqlite (Xerial) - ncaa.db" uuid="ce15d212-dfa4-4f52-825f-3fa40a3c8c33">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/ncaa.db</jdbc-url>
+    </data-source>
+  </component>
+</project>
