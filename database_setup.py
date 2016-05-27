@@ -28,7 +28,6 @@ db.create_all()
 db.session.commit()
 
 if __name__ == '__main__':
-    # from sqlalchemy.orm import sessionmaker
     from sqlalchemy.exc import IntegrityError
     from sqlalchemy.orm.exc import NoResultFound
     from scraper import get_team_ids, get_game_ids_in_year, get_game_result_by_ids
