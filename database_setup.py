@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask.ext.login import UserMixin
 from ncaa import app
 
 db = SQLAlchemy(app)
@@ -23,6 +24,12 @@ class Game(db.Model):
     away_score = db.Column(db.Integer, nullable=False)
     finished = db.Column(db.Boolean, nullable=False)
     date = db.Column(db.Date, nullable=False)
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+
+    # User Authentication
+    username = db.Column(db.String(50), nullable=False, unique=True)
 
 db.create_all()
 db.session.commit()
