@@ -1,16 +1,7 @@
 from flask import Flask, render_template
+
 app = Flask(__name__)
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Team, Game
-
-engine = create_engine('sqlite:///restaurantmenu.db')
-Base.metadata.bind = engine
-
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ncaa.db'
 
 @app.route('/')
 def hello_world():
