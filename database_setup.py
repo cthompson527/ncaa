@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask.ext.login import UserMixin
-from ncaa import app
+from .ncaa import app
 
 db = SQLAlchemy(app)
 
@@ -37,7 +37,7 @@ db.session.commit()
 if __name__ == '__main__':
     from sqlalchemy.exc import IntegrityError
     from sqlalchemy.orm.exc import NoResultFound
-    from scraper import get_team_ids, get_game_ids_in_year, get_game_result_by_ids
+    from .scraper import get_team_ids, get_game_ids_in_year, get_game_result_by_ids
     from datetime import datetime
 
     current_date = datetime.now()
@@ -50,12 +50,12 @@ if __name__ == '__main__':
             db.session.add(db_team)
             db.session.commit()
         except IntegrityError:
-            print team['name'] + ' already exists in the database.'
+            print(team['name'] + ' already exists in the database.')
             db.session.rollback()
 
     games = get_game_ids_in_year(year)
-    print games
-    print len(games)
+    print(games)
+    print(len(games))
 
     for game in games:
         try:
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         except IntegrityError:
             db.session.rollback()
 
-    print 'grabbing game data for all games in 2015'
+    print('grabbing game data for all games in 2015')
     previous_games = db.session.query(Game).filter(Game.year < year).all()
     game_ids = []
     for game in previous_games:
@@ -83,4 +83,4 @@ if __name__ == '__main__':
         game.finished = game_result['final']
         db.session.add(game)
         db.session.commit()
-    print len(previous_games)
+    print(len(previous_games))

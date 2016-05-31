@@ -54,7 +54,7 @@ def get_game_result_by_ids(game_ids):
             t.start()
         for thread in threads:
             thread.join()
-        print 'length: %s --- %s' % (len(game_results), game_results)
+        print('length: %s --- %s' % (len(game_results), game_results))
     return game_results
 
 def __retrieve_results_data_from_espn(id, game_results):
@@ -101,7 +101,6 @@ def __get_game_id_from_a(a_tag):
 def __retrieve_game_data_from_espn(year, week, games):
     from datetime import datetime, date
     html_doc = urllib2.urlopen('http://espn.go.com/college-football/schedule/_/year/%s/week/%s' % (year, week))
-    # html_doc = urllib2.urlopen('http://espn.go.com/college-football/schedule/_/year/2015/group/4/week/4')
     soup = BeautifulSoup(html_doc, 'html.parser')
     div = soup.find('div', id='sched-container')
     trs = div.find_all('tr')
@@ -128,6 +127,4 @@ def __retrieve_game_data_from_espn(year, week, games):
     games.append(games_in_week)
 
 if __name__ == '__main__':
-    #print get_game_ids_in_year(2015)
-    #print get_team_ids()
-    print get_game_result_by_ids([400869090, 400869822, 400757045])
+    print(get_game_result_by_ids([400869090, 400869822, 400757045]))
